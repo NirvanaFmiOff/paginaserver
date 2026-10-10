@@ -3,260 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirvana Infinito GSM</title>
+    <title>Nirvana Infinito - En Mantenimiento</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
         body {
             background-color: #0d1117;
             color: #ffffff;
-            line-height: 1.6;
-        }
-        header {
-            background: #161b22;
-            padding: 15px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #30363d;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
         }
-        .logo {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #ffb703;
-            letter-spacing: 1px;
-        }
-        .header-btn {
-            background: linear-gradient(135deg, #ffb703, #fb8500);
-            color: #0d1117;
-            padding: 8px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(255, 183, 3, 0.3);
-            transition: transform 0.2s;
-        }
-        .header-btn:hover {
-            transform: scale(1.05);
-        }
-        /* Contenedor principal */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-        .banner-container img {
-            width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid #30363d;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-        }
-        /* Paneles */
-        .panel {
+        .card {
             background: #161b22;
-            padding: 25px 20px;
+            padding: 40px 20px;
             border-radius: 16px;
             border: 1px solid #30363d;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
-        .badge {
-            background: rgba(255, 183, 3, 0.1);
+        h1 {
             color: #ffb703;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            display: inline-block;
+            font-size: 1.5rem;
             margin-bottom: 10px;
-            border: 1px solid rgba(255, 183, 3, 0.2);
         }
-        .panel h2 {
-            font-size: 1.4rem;
-            margin-bottom: 6px;
-            color: #ffffff;
-        }
-        .panel p {
+        p {
             color: #8b949e;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: #ffb703;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        select, input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1rem;
-        }
-        select:focus, input:focus {
-            border-color: #ffb703;
-            outline: none;
-        }
-        button.btn-primary {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #ffb703, #fb8500);
-            color: #0d1117;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
-        }
-        button.btn-primary:hover {
-            opacity: 0.9;
-        }
-        /* Botones flotantes */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
-        }
-        .float-btn {
-            background: #25d366;
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            transition: transform 0.2s;
-        }
-        .float-btn:hover {
-            transform: scale(1.1);
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo">♾️ NIRVANA INFINITO</div>
-        <a href="https://t.me/" target="_blank" class="header-btn">Canal Oficial 🚀</a>
-    </header>
-
-    <div class="container">
-        <!-- Banner principal -->
-        <div class="banner-container">
-            <img src="banner.png" alt="Nirvana Infinito Banner">
-        </div>
-
-        <!-- 1. Panel de Servicios con Menú Desplegable -->
-        <div class="panel">
-            <span class="badge">Plataforma Oficial GSM</span>
-            <h2>Selección de Servicios</h2>
-            <p>Elegí la categoría de servicio y completa los datos requeridos.</p>
-            
-            <label for="servicio">SELECCIONAR SERVICIO</label>
-            <select id="servicio" onchange="cambiarPlaceholder()">
-                <option value="imei">Check de IMEI / Dispositivos</option>
-                <option value="liberacion">Liberación por Red / Carrier</option>
-                <option value="reporte">Verificación de Reporte / Blacklist</option>
-                <option value="soporte">Soporte Técnico Especializado</option>
-            </select>
-
-            <label for="inputDato" id="labelDato">CÓDIGO IMEI</label>
-            <input type="text" id="inputDato" placeholder="Ej: 355762292145410">
-            
-            <button class="btn-primary" onclick="ejecutarConsulta()">EJECUTAR CONSULTA</button>
-        </div>
-
-        <!-- 2. Panel de Creación de Usuario / Cuenta -->
-        <div class="panel">
-            <span class="badge">Portal de Clientes</span>
-            <h2>Crear Cuenta Nueva</h2>
-            <p>Registrate para acceder a tarifas preferenciales y herramientas de gestión.</p>
-            
-            <label for="nombreUsuario">NOMBRE DE USUARIO O NEGOCIO</label>
-            <input type="text" id="nombreUsuario" placeholder="Ej: CryptoServers GSM">
-
-            <label for="emailUsuario">CORREO ELECTRÓNICO</label>
-            <input type="email" id="emailUsuario" placeholder="correo@ejemplo.com">
-
-            <label for="passUsuario">CONTRASEÑA</label>
-            <input type="password" id="passUsuario" placeholder="Mínimo 6 caracteres">
-            
-            <button class="btn-primary" onclick="registrarUsuario()">REGISTRAR CUENTA</button>
-        </div>
+    <div class="card">
+        <h1>♾️ NIRVANA INFINITO</h1>
+        <p>Plataforma temporalmente en mantenimiento.</p>
+        <p>Estamos realizando actualizaciones del sistema. Regresaremos pronto.</p>
     </div>
-
-    <!-- Botón flotante de WhatsApp -->
-    <div class="floating-buttons">
-        <a href="https://wa.me/" target="_blank" class="float-btn" title="Escribinos por WhatsApp">💬</a>
-    </div>
-
-    <script>
-        function cambiarPlaceholder() {
-            const servicio = document.getElementById('servicio').value;
-            const label = document.getElementById('labelDato');
-            const input = document.getElementById('inputDato');
-
-            if (servicio === 'imei') {
-                label.innerText = "CÓDIGO IMEI";
-                input.placeholder = "Ej: 355762292145410";
-            } else if (servicio === 'liberacion') {
-                label.innerText = "IMEI O MODELO DEL EQUIPO";
-                input.placeholder = "Ej: iPhone / Samsung";
-            } else if (servicio === 'reporte') {
-                label.innerText = "NÚMERO DE IMEI A VERIFICAR";
-                input.placeholder = "Ej: 355762292145410";
-            } else {
-                label.innerText = "DETALLE DE SU CONSULTA";
-                input.placeholder = "Describa brevemente su problema";
-            }
-        }
-
-        function ejecutarConsulta() {
-            const servicioText = document.getElementById('servicio').options[document.getElementById('servicio').selectedIndex].text;
-            const valor = document.getElementById('inputDato').value;
-            if(!valor) {
-                alert("Por favor complete el campo requerido.");
-                return;
-            }
-            alert("Procesando solicitud de: " + servicioText);
-        }
-
-        function registrarUsuario() {
-            const nombre = document.getElementById('nombreUsuario').value;
-            const email = document.getElementById('emailUsuario').value;
-            if(!nombre || !email) {
-                alert("Por favor complete los datos de registro.");
-                return;
-            }
-            alert("¡Cuenta registrada con éxito para " + nombre + "!");
-        }
-    </script>
-
 </body>
 </html>
