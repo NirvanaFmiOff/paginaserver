@@ -3,46 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nirvana Infinito GSM - Panel de Servicios</title>
+  <title>Nirvana Infinito GSM - Panel de Servicios DHRU</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Supabase SDK JS -->
+  <!-- Supabase SDK JS oficial -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- FontAwesome Íconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              gold: '#f59e0b',
-              dark: '#0b0f17',
-              card: '#111827',
-              accent: '#d97706'
-            }
-          }
-        }
-      }
-    }
-  </script>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-  <!-- BARRA SUPERIOR DE ANUNCIOS Y SOPORTE -->
+  <!-- BARRA SUPERIOR DE SOPORTE Y ESTADO -->
   <div class="bg-amber-500/10 border-b border-amber-500/20 text-xs py-2 px-4 text-amber-200">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
       <div class="flex items-center space-x-3">
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span> Servidor Online 24/7
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span> Servidor Online
         </span>
         <span class="hidden md:inline text-gray-600">|</span>
-        <span class="text-amber-100/90"><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Liberaciones, FRP Bypass & Servicios Server Instantáneos</span>
+        <span class="text-amber-100/90"><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Compra Segura · Rápido, Fácil y Confiable</span>
       </div>
       <div class="flex items-center space-x-4 font-medium">
         <a href="https://wa.me/" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1">
-          <i class="fa-brands fa-whatsapp text-emerald-400"></i> Soporte WhatsApp
+          <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp
         </a>
         <a href="https://t.me/" target="_blank" class="hover:text-sky-400 transition flex items-center gap-1">
           <i class="fa-brands fa-telegram text-sky-400"></i> Telegram
@@ -51,7 +34,7 @@
     </div>
   </div>
 
-  <!-- CABECERA PRINCIPAL / NAVBAR -->
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <header class="border-b border-gray-800 bg-gray-900/90 backdrop-blur sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
       
@@ -66,9 +49,9 @@
         </div>
       </div>
 
-      <!-- BOTÓN LOGIN / ÁREA DE USUARIO LOGUEADO -->
+      <!-- ÁREA DE USUARIO / LOGIN -->
       <div id="auth-header-btn">
-        <button onclick="toggleAuthModal()" class="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-950 font-black px-4 py-2 rounded-xl transition text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 uppercase tracking-wider">
+        <button onclick="openAuthModal()" class="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-950 font-black px-4 py-2 rounded-xl transition text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 uppercase tracking-wider cursor-pointer">
           <i class="fa-solid fa-user-lock"></i>
           <span>Ingresar / Registrarse</span>
         </button>
@@ -76,8 +59,8 @@
 
       <div id="user-header-info" class="hidden flex items-center space-x-3">
         <div class="bg-gray-800/80 border border-amber-500/30 rounded-lg px-3 py-1.5 text-right">
-          <div class="text-[10px] uppercase text-gray-400 font-semibold">Mi Saldo</div>
-          <div id="display-saldo" class="text-sm font-bold text-amber-400 font-mono">$0.00</div>
+          <div id="user-email-display" class="text-[10px] uppercase text-gray-400 font-semibold truncate max-w-[120px]">Usuario</div>
+          <div id="display-saldo" class="text-sm font-bold text-amber-400 font-mono">$0.00 USD</div>
         </div>
         <button onclick="logout()" class="bg-gray-800 hover:bg-red-600/20 hover:text-red-400 text-gray-300 p-2.5 rounded-lg border border-gray-700 transition" title="Cerrar Sesión">
           <i class="fa-solid fa-right-from-bracket"></i>
@@ -87,95 +70,91 @@
     </div>
   </header>
 
-  <!-- BANNER DORADO PRINCIPAL -->
+  <!-- BANNER DORADO A LA VISTA -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full">
     <div class="w-full rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl shadow-amber-500/10 bg-gray-900">
-      <img src="banner.png" alt="Nirvana Infinito GSM Banner" class="w-full h-auto object-cover block" onerror="this.style.display='none'">
+      <img src="banner.png" alt="Nirvana Infinito GSM Banner" class="w-full h-auto object-cover block">
     </div>
   </div>
 
-  <!-- CONTENIDO PRINCIPAL: CATÁLOGO DE SERVICIOS ESTILO TEAM-SAUL -->
+  <!-- CATÁLOGOS Y SERVICIOS TOTALMENTE A LA VISTA -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow space-y-6">
 
-    <!-- BARRA DE BÚSQUEDA DE SERVICIOS Y FILTROS -->
+    <!-- BUSCADOR -->
     <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="relative w-full md:w-96">
         <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-gray-500 text-xs"></i>
-        <input type="text" id="search-service" placeholder="Buscar servicio (ej: FRP Samsung, Xiaomi, Motorola)..." class="w-full bg-gray-950 border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition">
+        <input type="text" id="search-service" onkeyup="filterServices()" placeholder="Buscar servicio (ej: Samsung, Xiaomi, Licencias)..." class="w-full bg-gray-950 border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition">
       </div>
-      <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto text-xs">
-        <button class="bg-amber-500 text-gray-950 font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Todos</button>
-        <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-lg whitespace-nowrap border border-gray-700">FRP Bypass</button>
-        <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-lg whitespace-nowrap border border-gray-700">Mi Cloud</button>
-        <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-lg whitespace-nowrap border border-gray-700">Server Tools</button>
-        <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-lg whitespace-nowrap border border-gray-700">Licencias</button>
+      <div class="text-xs text-amber-400 font-semibold">
+        <i class="fa-solid fa-list-check mr-1"></i> Catálogo Completo de Servicios
       </div>
     </div>
 
-    <!-- SECCIÓN DE SERVICIOS DESTACADOS (VISIBLES PARA TODOS) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- GRILLA DE SERVICIOS -->
+    <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-      <!-- TARJETA 1 -->
-      <div class="bg-gray-900 border border-gray-800 hover:border-amber-500/50 rounded-2xl p-5 transition group relative">
+      <!-- SERVICIO 1 -->
+      <div class="service-card bg-gray-900 border border-gray-800 hover:border-amber-500/50 rounded-2xl p-5 transition group">
         <div class="flex items-start justify-between">
           <div class="flex items-center space-x-3">
             <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 font-bold text-lg">
               <i class="fa-brands fa-android"></i>
             </div>
             <div>
-              <h4 class="font-bold text-sm text-white group-hover:text-amber-400 transition">Samsung FRP Remove All Models</h4>
+              <h4 class="font-bold text-sm text-white group-hover:text-amber-400 transition">Samsung FRP Remove (Todos los Modelos)</h4>
               <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Instantáneo · Server Tool</span>
             </div>
           </div>
         </div>
-        <p class="text-xs text-gray-400 mt-3">Remoción de cuenta Google para dispositivos Samsung vía servidor remoto.</p>
+        <p class="text-xs text-gray-400 mt-3">Eliminación de cuenta Google FRP remota vía servidor.</p>
         <div class="mt-4 pt-3 border-t border-gray-800/80 flex justify-between items-center">
           <span class="text-xs font-mono font-bold text-amber-400">$8.50 USD</span>
-          <button onclick="orderService('Samsung FRP Remove')" class="bg-gray-800 hover:bg-amber-500 hover:text-gray-950 text-xs font-bold px-3 py-1.5 rounded-lg transition border border-gray-700">
+          <button onclick="handleOrder('Samsung FRP Remove')" class="bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-black px-4 py-2 rounded-xl transition cursor-pointer shadow-md">
             Ordenar
           </button>
         </div>
       </div>
 
-      <!-- TARJETA 2 -->
-      <div class="bg-gray-900 border border-gray-800 hover:border-amber-500/50 rounded-2xl p-5 transition group relative">
+      <!-- SERVICIO 2 -->
+      <div class="service-card bg-gray-900 border border-gray-800 hover:border-amber-500/50 rounded-2xl p-5 transition group">
         <div class="flex items-start justify-between">
           <div class="flex items-center space-x-3">
             <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 font-bold text-lg">
               <i class="fa-solid fa-mobile-screen"></i>
             </div>
             <div>
-              <h4 class="font-bold text-sm text-white group-hover:text-amber-400 transition">Xiaomi Mi Cloud Unlock (Clean)</h4>
-              <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">1-24 Horas · Server Direct</span>
+              <h4 class="font-bold text-sm text-white group-hover:text-amber-400 transition">Xiaomi Mi Cloud Unlock (Estado Clean)</h4>
+              <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">1 - 24 Horas · Servidor Directo</span>
             </div>
           </div>
         </div>
-        <p class="text-xs text-gray-400 mt-3">Desbloqueo oficial de cuenta Mi Cloud para celulares Xiaomi estado Clean.</p>
+        <p class="text-xs text-gray-400 mt-3">Desbloqueo oficial de cuenta Mi Cloud por código de llave.</p>
         <div class="mt-4 pt-3 border-t border-gray-800/80 flex justify-between items-center">
           <span class="text-xs font-mono font-bold text-amber-400">$12.00 USD</span>
-          <button onclick="orderService('Xiaomi Mi Cloud')" class="bg-gray-800 hover:bg-amber-500 hover:text-gray-950 text-xs font-bold px-3 py-1.5 rounded-lg transition border border-gray-700">
+          <button onclick="handleOrder('Xiaomi Mi Cloud Unlock')" class="bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-black px-4 py-2 rounded-xl transition cursor-pointer shadow-md">
             Ordenar
           </button>
         </div>
       </div>
 
-      <!-- TARJETA 3 -->
-      <div class="bg-gray-900 border border-gray-800 hover:border-amber-500/50 rounded-2xl p-5 transition group relative">
+      <!-- SERVICIO 3 -->
+      <div class="service-card bg-gray-900 border border-gray-800 hover:border-amber-500/50 rounded-2xl p-5 transition group">
         <div class="flex items-start justify-between">
           <div class="flex items-center space-x-3">
             <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 font-bold text-lg">
               <i class="fa-solid fa-key"></i>
             </div>
             <div>
-              <h4 class="font-bold text-sm text-white group-hover:text-amber-400 transition">UnlockTool 3 Meses / 6 Meses</h4>
-              <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Licencia Digital Auto-Activación</span>
+              <h4 class="font-bold text-sm text-white group-hover:text-amber-400 transition">UnlockTool Activación (3 / 6 / 12 Meses)</h4>
+              <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Digital · Activación Inmediata</span>
             </div>
           </div>
         </div>
-        <p class="text-xs text-gray-400 mt-3">Activación instantánea de herramienta UnlockTool para técnicos GSM.</p>
+        <p class="text-xs text-gray-400 mt-3">Activación digital para software UnlockTool GSM.</p>
         <div class="mt-4 pt-3 border-t border-gray-800/80 flex justify-between items-center">
           <span class="text-xs font-mono font-bold text-amber-400">$22.00 USD</span>
-          <button onclick="orderService('UnlockTool')" class="bg-gray-800 hover:bg-amber-500 hover:text-gray-950 text-xs font-bold px-3 py-1.5 rounded-lg transition border border-gray-700">
+          <button onclick="handleOrder('UnlockTool')" class="bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-black px-4 py-2 rounded-xl transition cursor-pointer shadow-md">
             Ordenar
           </button>
         </div>
@@ -185,48 +164,47 @@
 
   </main>
 
-  <!-- MODAL FLOTANTE DE LOGIN / REGISTRO OTP -->
+  <!-- MODAL FLOTANTE LOGIN OTP -->
   <div id="auth-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-gray-900 border border-amber-500/30 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl overflow-hidden">
       
-      <!-- BOTÓN CERRAR -->
-      <button onclick="toggleAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg cursor-pointer">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
       <div class="text-center mb-6">
         <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-center text-amber-400 text-2xl mx-auto mb-3">
-          <i class="fa-solid fa-shield-cat"></i>
+          <i class="fa-solid fa-envelope-circle-check"></i>
         </div>
-        <h3 class="text-xl font-black text-white">Ingreso / Registro OTP</h3>
-        <p class="text-xs text-gray-400 mt-1">Ingresá tu correo para recibir un código de acceso único de 6 dígitos sin contraseña.</p>
+        <h3 class="text-xl font-black text-white">Ingreso con Código OTP</h3>
+        <p class="text-xs text-gray-400 mt-1">Ingresá tu correo para recibir un código de acceso único sin contraseña.</p>
       </div>
 
-      <!-- PASO 1: CORREO -->
+      <!-- PASO 1: PEDIR EMAIL -->
       <div id="step-send-otp" class="space-y-4">
         <div>
           <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Correo Electrónico</label>
-          <input id="user-email" type="email" placeholder="cliente@ejemplo.com" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 transition text-sm">
+          <input id="user-email" type="email" placeholder="tu-correo@ejemplo.com" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 transition text-sm">
         </div>
-        <button onclick="sendOTP()" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-950 font-black py-3 rounded-xl transition shadow-lg shadow-amber-500/20 text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <button id="btn-send-code" onclick="sendOTP()" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-950 font-black py-3 rounded-xl transition shadow-lg shadow-amber-500/20 text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
           <span>Enviar Código a mi Correo</span>
           <i class="fa-solid fa-paper-plane"></i>
         </button>
       </div>
 
-      <!-- PASO 2: CÓDIGO OTP -->
+      <!-- PASO 2: PEDIR CÓDIGO -->
       <div id="step-verify-otp" class="space-y-4 hidden">
         <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-center text-xs text-amber-200">
-          Te enviamos un código de 6 dígitos. Si no lo encontrás, revisá tu Spam.
+          Revisá tu casilla de correo o carpeta Spam e ingresá los 6 dígitos.
         </div>
         <div>
-          <label class="block text-xs font-semibold uppercase text-gray-400 mb-1 text-center">Código de 6 dígitos</label>
+          <label class="block text-xs font-semibold uppercase text-gray-400 mb-1 text-center">Código OTP</label>
           <input id="otp-code" type="text" maxlength="6" placeholder="123456" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-center text-2xl font-mono tracking-[0.5em] text-amber-400 focus:outline-none focus:border-amber-500 transition">
         </div>
-        <button onclick="verifyOTP()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl transition shadow-lg shadow-emerald-600/30 text-xs uppercase tracking-wider">
+        <button id="btn-verify-code" onclick="verifyOTP()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl transition shadow-lg shadow-emerald-600/30 text-xs uppercase tracking-wider cursor-pointer">
           Validar e Ingresar
         </button>
-        <button onclick="resetAuthForm()" class="w-full text-xs text-gray-500 hover:text-gray-300 transition">
+        <button onclick="resetAuthForm()" class="w-full text-xs text-gray-500 hover:text-gray-300 transition cursor-pointer">
           <i class="fa-solid fa-arrow-left mr-1"></i> Usar otro correo
         </button>
       </div>
@@ -241,71 +219,85 @@
     <p>&copy; Nirvana Infinito GSM. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- JAVASCRIPT & SUPABASE SDK -->
+  <!-- SCRIPT CONEXIÓN SUPABASE -->
   <script>
-    const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
-    const SUPABASE_ANON_KEY = 'TU-PUBLIC-ANON-KEY';
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // 🌐 URL de tu proyecto ya configurada y tu clave anon key:
+    const SUPABASE_URL = 'https://bczisjesypupjkyjbna.supabase.co';
+    const SUPABASE_ANON_KEY = 'https://bczisjesypupjkyjbna.supabase.co';
 
-    let savedEmail = '';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let userSession = null;
 
-    function toggleAuthModal() {
-      document.getElementById('auth-modal').classList.toggle('hidden');
+    function openAuthModal() {
+      document.getElementById('auth-modal').classList.remove('hidden');
+    }
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+    }
+
+    function handleOrder(serviceName) {
+      if (!userSession) {
+        showStatus('Iniciá sesión para procesar la orden de ' + serviceName, 'text-amber-400');
+        openAuthModal();
+      } else {
+        alert('¡Solicitud iniciada para: ' + serviceName + '!');
+      }
     }
 
     async function sendOTP() {
-      const emailInput = document.getElementById('user-email').value.trim();
-      if (!emailInput) return showStatus('Por favor ingresá tu correo electrónico.', 'text-red-400');
+      const email = document.getElementById('user-email').value.trim();
+      if (!email) return showStatus('Por favor ingresá tu correo electrónico.', 'text-red-400');
 
-      savedEmail = emailInput;
-      showStatus('Enviando código...', 'text-yellow-400');
+      showStatus('Enviando código OTP a tu casilla...', 'text-amber-400');
+      document.getElementById('btn-send-code').disabled = true;
 
-      const { error } = await supabase.auth.signInWithOtp({ email: savedEmail });
+      const { error } = await supabaseClient.auth.signInWithOtp({
+        email: email
+      });
+
+      document.getElementById('btn-send-code').disabled = false;
 
       if (error) {
-        showStatus('Error: ' + error.message, 'text-red-400');
+        showStatus('Error de Supabase: ' + error.message, 'text-red-400');
       } else {
         document.getElementById('step-send-otp').classList.add('hidden');
         document.getElementById('step-verify-otp').classList.remove('hidden');
-        showStatus('¡Código enviado con éxito!', 'text-emerald-400');
+        showStatus('¡Código despachado con éxito!', 'text-emerald-400');
       }
     }
 
     async function verifyOTP() {
+      const email = document.getElementById('user-email').value.trim();
       const code = document.getElementById('otp-code').value.trim();
-      if (code.length !== 6) return showStatus('El código debe ser de 6 dígitos.', 'text-red-400');
 
-      showStatus('Verificando...', 'text-yellow-400');
+      if (code.length !== 6) return showStatus('El código debe tener 6 dígitos.', 'text-red-400');
 
-      const { data, error } = await supabase.auth.verifyOtp({
-        email: savedEmail,
+      showStatus('Verificando código...', 'text-amber-400');
+
+      const { data, error } = await supabaseClient.auth.verifyOtp({
+        email: email,
         token: code,
         type: 'email'
       });
 
       if (error) {
-        showStatus('Código incorrecto o vencido.', 'text-red-400');
+        showStatus('Código incorrecto o vencido: ' + error.message, 'text-red-400');
       } else {
-        showStatus('¡Bienvenido!', 'text-emerald-400');
+        userSession = data.session;
+        showStatus('¡Acceso verificado con éxito!', 'text-emerald-400');
+        
+        document.getElementById('user-email-display').innerText = email;
+        document.getElementById('auth-header-btn').classList.add('hidden');
+        document.getElementById('user-header-info').classList.remove('hidden');
+
         setTimeout(() => {
-          toggleAuthModal();
-          setUserLogged();
+          closeAuthModal();
         }, 800);
       }
     }
 
-    function setUserLogged() {
-      document.getElementById('auth-header-btn').classList.add('hidden');
-      document.getElementById('user-header-info').classList.remove('hidden');
-    }
-
-    function orderService(serviceName) {
-      alert('Para procesar "' + serviceName + '", iniciá sesión o registrate primero.');
-      toggleAuthModal();
-    }
-
     async function logout() {
-      await supabase.auth.signOut();
+      await supabaseClient.auth.signOut();
       location.reload();
     }
 
@@ -320,6 +312,15 @@
       document.getElementById('step-send-otp').classList.remove('hidden');
       document.getElementById('step-verify-otp').classList.add('hidden');
       document.getElementById('status-msg').classList.add('hidden');
+    }
+
+    function filterServices() {
+      const query = document.getElementById('search-service').value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+      });
     }
   </script>
 </body>
