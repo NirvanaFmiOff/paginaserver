@@ -221,9 +221,8 @@
 
   <!-- SCRIPT CONEXIÓN SUPABASE -->
   <script>
-    // 🌐 URL de tu proyecto ya configurada y tu clave anon key:
     const SUPABASE_URL = 'https://bczisjesypupjkyjbna.supabase.co';
-    const SUPABASE_ANON_KEY = 'https://bczisjesypupjkyjbna.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjemlzamVzeXB1cGpreWpibmEiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTcyOTI4NjA4OCwiZXhwIjoyMDQ0ODYyMDg4fQ.a6-k_sQY3WjBvS6LgL3J5N_h7vK0Jk1M8P8S6T2_U9Y';
 
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     let userSession = null;
